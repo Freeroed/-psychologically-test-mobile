@@ -82,10 +82,14 @@
         android:layout_width="match_parent"
         android:layout_height="200px"
         android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.02"
+            android:layout_height="wrap_content"/>
         <ImageView android:id="@+id/goBack"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:src="@drawable/ArrowBack"
+            android:src="@drawable/arrow_back"
             android:layout_gravity="left"/>
         <TextView
             android:layout_width="wrap_content"
@@ -94,8 +98,12 @@
         <ImageView android:id="@+id/goNext"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:src="@drawable/ArrowNext"
+            android:src="@drawable/arrow_next"
             android:layout_gravity="right"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.02"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </LinearLayout>
