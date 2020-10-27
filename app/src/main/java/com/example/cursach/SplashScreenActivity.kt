@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class SplashScreenActivity: AppCompatActivity()  {
-    private val SPLASH_DISPLAY_LENGTH = 2000L // время отображения в мс
+    private val SPLASH_DISPLAY_LENGTH = 1000L // время отображения в мс
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
