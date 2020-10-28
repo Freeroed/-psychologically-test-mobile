@@ -22,5 +22,16 @@ class Question : AppCompatActivity() {
             selectedYes.background =  getResources().getDrawable(R.color.mainGreen)
             selectedNo.background =  getResources().getDrawable(R.color.selectedYelow)
         }
+
+        // клик по кнопке "назад"
+        goBack.setOnClickListener {
+
+        }
+
+        // клик по кнопке "вперед"
+        goNext.setOnClickListener {
+            val intent = Intent(this, Question::class.java)
+            startActivity(intent)
+        }
     }
 }
