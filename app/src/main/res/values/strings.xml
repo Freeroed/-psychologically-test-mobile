@@ -15,4 +15,6 @@
     </string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+    <string name="login">Email:</string>
+    <string name="password">Пароль:</string>
 </resources>
