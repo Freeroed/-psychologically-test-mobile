@@ -7,25 +7,16 @@
     android:background="@android:color/white">
 
     <TextView
-        android:id="@+id/testName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:textSize="100px"
-        android:text="@string/test_name"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@android:color/black"/>
-    <TextView
         android:id="@+id/testDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:text="@string/test_description"
-        android:textSize="50px"
+        android:layout_weight="6"
+        android:text="@string/instruction"
+        android:textSize="80px"
         android:gravity="center"
         android:layout_gravity="center"
         android:textColor="@color/mainGreen"/>
+
     <Button
         android:id="@+id/goTest"
         android:layout_width="300sp"
@@ -35,19 +26,6 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:text="@string/go_test" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_weight="0.1"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/goPersonal"
-        android:layout_width="300sp"
-        android:textSize="70px"
-        android:background="@color/mainGreen"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:text="@string/personal" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_weight="0.1"
