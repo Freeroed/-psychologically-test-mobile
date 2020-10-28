@@ -19,4 +19,5 @@
     <string name="password">Пароль:</string>
     <string name="login">Войти</string>
     <string name="reset_password">Восстановление пароля</string>
+    <string name="registration">Регистрация</string>
 </resources>
