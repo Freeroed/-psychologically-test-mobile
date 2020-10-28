@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:textSize="100px"
         android:layout_weight="1"
-        android:text="@string/login"
+        android:text="@string/email"
         android:textColor="@android:color/black"/>
     <EditText
         android:id="@+id/emailInput"
@@ -47,6 +47,32 @@
         android:textColor="@android:color/black"
         android:inputType="textPassword"
         android:background="@drawable/edit_text_border"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_weight="0.2"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/login"
+        android:layout_width="300sp"
+        android:textSize="55px"
+        android:background="@color/mainGreen"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="@string/login" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_weight="0.2"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/resetPassword"
+        android:layout_width="300sp"
+        android:textSize="55px"
+        android:background="@color/selectedYelow"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="@string/reset_password" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_weight="7"
