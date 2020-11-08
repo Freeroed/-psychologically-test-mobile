@@ -7,8 +7,7 @@ data class LoginDto (
     var username: String,
 
     @SerializedName("password")
-    var password: String,
+    var password: String
 
-    @SerializedName("rememberMe")
-    var rememberMe: Boolean
+
 )
