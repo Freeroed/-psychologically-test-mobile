@@ -15,4 +15,9 @@
     </string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+    <string name="email">Email:</string>
+    <string name="password">Пароль:</string>
+    <string name="login">Войти</string>
+    <string name="reset_password">Восстановление пароля</string>
+    <string name="registration">Регистрация</string>
 </resources>

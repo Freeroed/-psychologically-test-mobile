@@ -15,5 +15,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, TestDescriptionActivity::class.java)
             startActivity(intent)
         }
+
+        // клик по кнопке "Личный кабинет"
+        goPersonal.setOnClickListener {
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
