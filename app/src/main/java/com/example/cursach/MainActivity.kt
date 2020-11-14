@@ -1,17 +1,13 @@
 package com.example.cursach
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cursach.rest.ApiClient
-import com.example.cursach.rest.request.LoginDto
-import com.example.cursach.rest.response.TokenDto
 import com.example.cursach.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,4 +39,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    // обработка нажатия кнопки "назад"
+    override fun onBackPressed() {
+        val quitDialog = AlertDialog.Builder(this)
+        quitDialog.setTitle("Вы уверены, что хотите выйти?")
+        quitDialog.setPositiveButton("Да", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                finish() // закрыть приложение
+            }
+        })
+        quitDialog.setNegativeButton("Нет", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                dialog?.cancel()  //закрыть диалоговое окно
+            }
+        })
+        quitDialog.show()
+    }
+
 }

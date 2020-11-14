@@ -54,5 +54,11 @@ class AuthActivity : AppCompatActivity() {
                     })
             }
         }
+
+        // регистрация
+        registration.setOnClickListener {
+            val intent = Intent(this, Registration::class.java)
+            startActivity(intent)
+        }
     }
 }

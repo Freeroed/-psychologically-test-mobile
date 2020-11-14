@@ -17,9 +17,12 @@
 
     <string name="email">Email:</string>
     <string name="password">Пароль:</string>
+    <string name="password_repeat">Повторите пароль:</string>
     <string name="name">Фамилия и имя:</string>
     <string name="birtday">Дата рождения:</string>
     <string name="gender">Пол:</string>
+    <string name="male">Мужской</string>
+    <string name="female">Женский</string>
 
     <string name="login">Войти</string>
     <string name="reset_password">Восстановление пароля</string>
@@ -27,4 +30,5 @@
     <string name="edit">Редактировать</string>
     <string name="go_test">Начать тест</string>
     <string name="personal">Личный кабинет</string>
+    <string name="register">Зарегистрироваться</string>
 </resources>
