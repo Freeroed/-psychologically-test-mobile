@@ -35,7 +35,8 @@ class MainActivity : AppCompatActivity() {
             sessionManager = SessionManager(this)
             var token :String? = sessionManager.getAuthToken()
             if (token != null) {
-                Toast.makeText( this,token, Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Personal::class.java)
+                startActivity(intent)
             } else {
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)

@@ -45,6 +45,8 @@ class AuthActivity : AppCompatActivity() {
                             if (loginResponse?.token != null) {
                                 sessionManager.saveAuthToken(loginResponse.token)
                                 Toast.makeText( context,"Авторизаця успешна", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(context, Personal::class.java)
+                                startActivity(intent)
                             } else {
                                 Toast.makeText( context,"Неверный логин или пароль", Toast.LENGTH_LONG).show()
                             }
