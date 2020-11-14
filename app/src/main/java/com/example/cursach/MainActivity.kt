@@ -31,8 +31,15 @@ class MainActivity : AppCompatActivity() {
 
         // клик по кнопке "Личный кабинет"
         goPersonal.setOnClickListener {
-            val intent = Intent(this, AuthActivity::class.java)
-            startActivity(intent)
+            // проверка авторизации
+            sessionManager = SessionManager(this)
+            var token :String? = sessionManager.getAuthToken()
+            if (token != null) {
+                Toast.makeText( this,token, Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, AuthActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

@@ -30,23 +30,27 @@ class AuthActivity : AppCompatActivity() {
             sessionManager = SessionManager(this)
             var email : String = emailInput.getText().toString()
             var pass : String = passwordInput.getText().toString()
-            apiClient.getApiService(this).authenticate(LoginDto(username = email, password = pass))
-                .enqueue(object : Callback<TokenDto> {
-                    override fun onFailure(call: Call<TokenDto>, t: Throwable) {
-                        Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
-                    }
-
-                    override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
-                        val loginResponse = response.body()
-
-                        if (loginResponse?.token != null) {
-                            sessionManager.saveAuthToken(loginResponse.token)
-                            Toast.makeText( context,"Авторизаця успешна", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText( context,"Ошибка авторизации", Toast.LENGTH_LONG).show()
+            if (email.length == 0 || pass.length == 0) {
+                Toast.makeText( context,"Введите email и пароль", Toast.LENGTH_SHORT).show()
+            } else {
+                apiClient.getApiService(this).authenticate(LoginDto(username = email, password = pass))
+                    .enqueue(object : Callback<TokenDto> {
+                        override fun onFailure(call: Call<TokenDto>, t: Throwable) {
+                            Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
                         }
-                    }
-                })
+
+                        override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
+                            val loginResponse = response.body()
+
+                            if (loginResponse?.token != null) {
+                                sessionManager.saveAuthToken(loginResponse.token)
+                                Toast.makeText( context,"Авторизаця успешна", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText( context,"Неверный логин или пароль", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    })
+            }
         }
     }
 }
