@@ -1,16 +1,22 @@
 package com.example.cursach.rest
 
+import com.example.cursach.rest.request.AnswerDto
 import com.example.cursach.rest.request.LoginDto
+import com.example.cursach.rest.response.QuestionDto
+import com.example.cursach.rest.response.ResultTestDto
 import com.example.cursach.rest.response.TokenDto
 import com.example.cursach.utils.Constants
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Multipart
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
     @POST(Constants.AUTH_URL)
     fun authenticate(@Body request: LoginDto): Call<TokenDto>
+
+    @POST(Constants.SOLVE_TEST_URL)
+    fun solveTest(@Body answers: ArrayList<AnswerDto>): Call<ResultTestDto>
+
+    @GET(Constants.QUESTIONS_URL)
+    fun getQuestions(): Call<ArrayList<QuestionDto>>
 }
