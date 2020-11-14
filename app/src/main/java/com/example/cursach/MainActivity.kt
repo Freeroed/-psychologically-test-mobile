@@ -22,27 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val context = this
-        //Инициализация Апи сервиса
-        apiClient = ApiClient()
-        sessionManager = SessionManager(this)
-        apiClient.getApiService(this).authenticate(LoginDto(username = "admin", password = "admin"))
-            .enqueue(object : Callback<TokenDto> {
-                override fun onFailure(call: Call<TokenDto>, t: Throwable) {
-                    Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
-                    val loginResponse = response.body()
-
-                    if (loginResponse?.token != null) {
-                        sessionManager.saveAuthToken(loginResponse.token)
-                        Toast.makeText( context,"Авторизаця успешна", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText( context,"Ошибка авторизации", Toast.LENGTH_LONG).show()
-                    }
-                }
-            })
 
         // клик по кнопке "Начать тест" - переход на страницу описания теста
         goTest.setOnClickListener {
@@ -52,8 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         // клик по кнопке "Личный кабинет"
         goPersonal.setOnClickListener {
-            val intent = Intent(this, AuthActivity::class.java)
-            startActivity(intent)
+            // проверка авторизации
+            sessionManager = SessionManager(this)
+            var token :String? = sessionManager.getAuthToken()
+            if (token != null) {
+                val intent = Intent(this, Personal::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, AuthActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

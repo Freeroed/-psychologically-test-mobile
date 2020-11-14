@@ -24,6 +24,8 @@
         android:text="@string/test_description"
         android:textSize="50px"
         android:gravity="center"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
         android:layout_gravity="center"
         android:textColor="@color/mainGreen"/>
     <Button
@@ -35,10 +37,7 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:text="@string/go_test" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_weight="0.1"
-        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/goPersonal"
         android:layout_width="300sp"
@@ -46,10 +45,8 @@
         android:background="@color/mainGreen"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginBottom="40px"
+        android:layout_marginTop="40px"
         android:layout_gravity="center"
         android:text="@string/personal" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_weight="0.1"
-        android:layout_height="wrap_content"/>
 </LinearLayout>

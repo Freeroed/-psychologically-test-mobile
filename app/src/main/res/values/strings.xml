@@ -6,18 +6,25 @@
         Как и следует из названия теста, опросник был разработан Шмишеком на основе выделенных Леонгардом доминирующих черт характера при том или ином типе.
         Данный тест на акцентуацию состоит из 88 вопросов, касающихся 10 типов акцентуаций.
     </string>
-    <string name="go_test">Начать тест</string>
-    <string name="personal">Личный кабинет</string>
     <string name="instruction">
         Вам будут предложены утверждения, касающиеся вашего характера.
         Отвечайте, долго не  раздумывая, вы можете выбрать один их двух ответов: «да» или «нет», других вариантов ответов  нет.
         Свой ответ нужно отметить в ответном бланке, поставив крестик в окошке «да» или «нет»  напротив цифры, соответствующей номеру вопроса.
     </string>
+
     <string name="yes">Да</string>
     <string name="no">Нет</string>
+
     <string name="email">Email:</string>
     <string name="password">Пароль:</string>
+    <string name="name">Фамилия и имя:</string>
+    <string name="birtday">Дата рождения:</string>
+    <string name="gender">Пол:</string>
+
     <string name="login">Войти</string>
     <string name="reset_password">Восстановление пароля</string>
     <string name="registration">Регистрация</string>
+    <string name="edit">Редактировать</string>
+    <string name="go_test">Начать тест</string>
+    <string name="personal">Личный кабинет</string>
 </resources>
