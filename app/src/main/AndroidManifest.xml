@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Registration"></activity>
+        <activity android:name=".TestResult"></activity>
         <activity android:name=".Personal" />
         <activity android:name=".AuthActivity" />
         <activity android:name=".Question" />
