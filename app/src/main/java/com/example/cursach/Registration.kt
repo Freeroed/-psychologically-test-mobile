@@ -1,22 +1,23 @@
 package com.example.cursach
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.response.AccountDto
-import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_test_description.goBack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.time.Instant
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class Registration : AppCompatActivity() {
@@ -51,56 +52,67 @@ class Registration : AppCompatActivity() {
             val email = emailInput.text.toString()
             val passwordFirst = passwordInput.text.toString()
             val passwordSecond = passwordRepeatInput.text.toString()
-            val birthday = birthdayInput.text.toString()
             val gender = resources.getResourceEntryName(genderSelect.checkedRadioButtonId)
+            val firstName = nameInput.text.toString()
+            val secondName = surnameInput.text.toString()
             val createdDate = Instant.now().toString()
+            val birthday = Instant.now().toString() // birthdayInput.text.toString()
 
             if (
                 email.length == 0 ||
                 passwordFirst.length == 0 ||
                 passwordSecond.length == 0 ||
                 birthday.length == 0 ||
-                gender.length == 0
+                gender.length == 0 ||
+                firstName.length == 0 ||
+                secondName.length == 0
             ) {
                 Toast.makeText( context, "Все поля обязательны для заполнения", Toast.LENGTH_SHORT).show()
             } else {
-                if (passwordFirst != passwordSecond) {
-                    Toast.makeText( context, "Пароли не совпадают", Toast.LENGTH_SHORT).show()
+                if (passwordFirst.length < 8 || passwordSecond.length < 8) {
+                    Toast.makeText( context, "Пароль должен быть длиннее 8 символов", Toast.LENGTH_SHORT).show()
                 } else {
-                    apiClient = ApiClient()
+                    if (passwordFirst != passwordSecond) {
+                        Toast.makeText( context, "Пароли не совпадают", Toast.LENGTH_SHORT).show()
+                    } else {
+                        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                            Toast.makeText( context, "Вы ввели некорректный email", Toast.LENGTH_SHORT).show()
+                        } else {
+                            apiClient = ApiClient()
 
-                    var body = AccountDto(
-                        login = email,
-                        email = email,
-                        password = passwordFirst,
-                        activated = true,
-                        firstName = "тест",
-                        lastName = "тест",
-                        gender = gender,
-                        birthDate = createdDate,
-                        createdDate = createdDate
-                    )
+                            var body = AccountDto(
+                                login = email,
+                                email = email,
+                                password = passwordFirst,
+                                activated = true,
+                                firstName = firstName,
+                                lastName = secondName,
+                                gender = gender,
+                                birthDate = createdDate,
+                                createdDate = createdDate
+                            )
 
-                    apiClient.getApiService(this).registration(body)
-                        .enqueue(object : Callback<Void> {
-                            override fun onFailure(call: Call<Void>, t: Throwable) {
-                                Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
-                                Log.e("1", "1")
-                            }
+                            apiClient.getApiService(this).registration(body)
+                                .enqueue(object : Callback<Void> {
+                                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                                        Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
+                                        Log.e("1", "1")
+                                    }
 
-                            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                                if (response.code() == 201) {
-                                    Toast.makeText( context,"Вы успешно зарегестрированы", Toast.LENGTH_SHORT).show()
-                                }
-                                if (response.code() == 400) {
-                                    Toast.makeText( context,response.message().toString(), Toast.LENGTH_SHORT).show()
-                                }
-                            }
+                                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                                        if (response.code() == 201) {
+                                            Toast.makeText( context,"Вы успешно зарегестрированы", Toast.LENGTH_SHORT).show()
+                                        }
+                                        if (response.code() == 400) {
+                                            Toast.makeText( context,response.message().toString(), Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
 
-                        })
+                                })
+                        }
+                    }
                 }
             }
         }
-
     }
 }
