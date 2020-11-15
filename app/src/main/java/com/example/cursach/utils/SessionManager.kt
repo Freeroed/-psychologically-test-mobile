@@ -20,4 +20,10 @@ class SessionManager (context: Context) {
     fun getAuthToken(): String? {
         return prefs.getString(AUTH_TOKEN, null)
     }
+
+    fun cleanAuthToken() {
+        val editor = prefs.edit()
+        editor.clear()
+        editor.apply()
+    }
 }

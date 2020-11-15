@@ -1,18 +1,24 @@
 package com.example.cursach
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.response.AccountDto
+import com.example.cursach.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_personal.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Personal : AppCompatActivity() {
+
+    private lateinit var sessionManager: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var apiClient: ApiClient
+        sessionManager = SessionManager(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal)
@@ -31,5 +37,11 @@ class Personal : AppCompatActivity() {
                     userName.setText(userInfo?.lastName + " " + userInfo?.firstName)
                 }
             })
+
+        logout.setOnClickListener {
+            sessionManager.cleanAuthToken()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -30,6 +30,8 @@
     <string name="gender_v2">Пол:</string>
 
     <string name="login">Войти</string>
+    <string name="logout">Выйти</string>
+    <string name="stat">Статистика</string>
     <string name="reset_password">Восстановление пароля</string>
     <string name="registration">Регистрация</string>
     <string name="edit">Редактировать</string>
