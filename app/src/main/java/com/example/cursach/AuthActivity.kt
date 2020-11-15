@@ -9,6 +9,8 @@ import com.example.cursach.rest.request.LoginDto
 import com.example.cursach.rest.response.TokenDto
 import com.example.cursach.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_auth.*
+import kotlinx.android.synthetic.main.activity_auth.goBack
+import kotlinx.android.synthetic.main.activity_test_description.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,6 +55,17 @@ class AuthActivity : AppCompatActivity() {
                         }
                     })
             }
+        }
+
+        // регистрация
+        registration.setOnClickListener {
+            val intent = Intent(this, Registration::class.java)
+            startActivity(intent)
+        }
+
+        // клик по кнопке "назад"
+        goBack.setOnClickListener {
+            onBackPressed()
         }
     }
 }

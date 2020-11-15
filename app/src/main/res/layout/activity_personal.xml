@@ -5,7 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white">
-
+    <ImageView android:id="@+id/goBack"
+        android:layout_width="70px"
+        android:layout_height="70px"
+        android:src="@drawable/arrow"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="40px"
+        android:layout_gravity="left"/>
     <TextView
         android:id="@+id/email"
         android:layout_width="match_parent"
@@ -13,8 +19,8 @@
         android:layout_gravity="center"
         android:textSize="100px"
         android:layout_weight="1"
-        android:text="@string/email"
-        android:layout_marginTop="30px"
+        android:text="@string/email_v2"
+        android:layout_marginTop="20px"
         android:layout_marginRight="80px"
         android:layout_marginLeft="80px"
         android:textColor="@android:color/black"/>
@@ -56,7 +62,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:textSize="100px"
-        android:text="@string/birtday"
+        android:text="@string/birtday_v2"
         android:layout_marginRight="80px"
         android:layout_marginLeft="80px"
         android:textColor="@android:color/black"/>
@@ -77,7 +83,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:textSize="100px"
-        android:text="@string/gender"
+        android:text="@string/gender_v2"
         android:layout_marginRight="80px"
         android:layout_marginLeft="80px"
         android:textColor="@android:color/black"/>
@@ -103,6 +109,29 @@
         android:text="@string/edit"
         android:layout_marginRight="150px"
         android:layout_marginLeft="150px"
-        android:layout_marginBottom="500px"/>
-
+        android:layout_marginBottom="50px"/>
+    <Button
+        android:id="@+id/getStat"
+        android:layout_width="match_parent"
+        android:textSize="55px"
+        android:background="@color/selectedYelow"
+        android:layout_height="200px"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="@string/stat"
+        android:layout_marginRight="150px"
+        android:layout_marginLeft="150px"
+        android:layout_marginBottom="50px"/>
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:textSize="55px"
+        android:background="@color/mainGreen"
+        android:layout_height="200px"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="@string/logout"
+        android:layout_marginRight="150px"
+        android:layout_marginLeft="150px"
+        android:layout_marginBottom="50px"/>
 </LinearLayout>

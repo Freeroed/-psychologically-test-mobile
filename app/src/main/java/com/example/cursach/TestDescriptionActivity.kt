@@ -9,10 +9,11 @@ import com.example.cursach.rest.response.QuestionDto
 import com.example.cursach.rest.response.TokenDto
 import com.example.cursach.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.goTest
+import kotlinx.android.synthetic.main.activity_test_description.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.Serializable
 
 
 class TestDescriptionActivity : AppCompatActivity() {
@@ -52,6 +53,11 @@ class TestDescriptionActivity : AppCompatActivity() {
                 }
             })
 
+        }
+
+        // клик по кнопке "назад"
+        goBack.setOnClickListener {
+            onBackPressed()
         }
     }
 }

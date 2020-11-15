@@ -5,7 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white">
-
+    <ImageView android:id="@+id/goBack"
+        android:layout_width="70px"
+        android:layout_height="70px"
+        android:src="@drawable/arrow"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="40px"
+        android:layout_gravity="left"/>
     <TextView
         android:id="@+id/email"
         android:layout_width="match_parent"
@@ -80,8 +86,20 @@
         android:text="@string/reset_password"
         android:layout_marginRight="150px"
         android:layout_marginLeft="150px"
-        android:layout_marginBottom="500px"/>
+        android:layout_marginBottom="400px"/>
 
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30px"
+        android:layout_marginRight="150px"
+        android:layout_marginLeft="150px"
+        android:layout_weight="1"
+        android:text="@string/noAccount"
+        android:textColor="@android:color/black"
+        android:textSize="50px" />
     <Button
         android:id="@+id/registration"
         android:layout_width="match_parent"
