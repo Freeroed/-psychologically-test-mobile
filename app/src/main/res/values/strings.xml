@@ -15,14 +15,19 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
 
-    <string name="email">Email:</string>
-    <string name="password">Пароль:</string>
-    <string name="password_repeat">Повторите пароль:</string>
+    <string name="email">*Email:</string>
+    <string name="password">*Пароль:</string>
+    <string name="password_repeat">*Повторите пароль:</string>
     <string name="name">Фамилия и имя:</string>
-    <string name="birtday">Дата рождения:</string>
-    <string name="gender">Пол:</string>
+    <string name="second_name">*Фамилия:</string>
+    <string name="first_name">*Имя:</string>
+    <string name="birtday">*Дата рождения:</string>
+    <string name="gender">*Пол:</string>
     <string name="male">Мужской</string>
     <string name="female">Женский</string>
+    <string name="email_v2">Email:</string>
+    <string name="birtday_v2">Дата рождения:</string>
+    <string name="gender_v2">Пол:</string>
 
     <string name="login">Войти</string>
     <string name="reset_password">Восстановление пароля</string>
