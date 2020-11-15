@@ -1,28 +1,30 @@
 package com.example.cursach
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cursach.rest.ApiClient
+import com.example.cursach.rest.request.LoginDto
 import com.example.cursach.rest.response.AccountDto
+import com.example.cursach.rest.response.TokenDto
+import com.example.cursach.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_test_description.goBack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.time.Instant
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class Registration : AppCompatActivity() {
 
     private lateinit var apiClient: ApiClient
+    private lateinit var sessionManager: SessionManager
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,6 +81,7 @@ class Registration : AppCompatActivity() {
                             Toast.makeText( context, "Вы ввели некорректный email", Toast.LENGTH_SHORT).show()
                         } else {
                             apiClient = ApiClient()
+                            sessionManager = SessionManager(this)
 
                             var body = AccountDto(
                                 login = email,
@@ -102,6 +105,23 @@ class Registration : AppCompatActivity() {
                                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                         if (response.code() == 201) {
                                             Toast.makeText( context,"Вы успешно зарегестрированы", Toast.LENGTH_SHORT).show()
+                                            apiClient.getApiService(context).authenticate(LoginDto(username = email, password = passwordFirst))
+                                                .enqueue(object : Callback<TokenDto> {
+                                                    override fun onFailure(call: Call<TokenDto>, t: Throwable) {
+                                                        Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                    override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
+                                                        val loginResponse = response.body()
+
+                                                        if (loginResponse?.token != null) {
+                                                            sessionManager.saveAuthToken(loginResponse.token)
+                                                            val intent = Intent(context, Personal::class.java)
+                                                            startActivity(intent)
+                                                        } else {
+                                                            Toast.makeText( context,"Ошибка авторизации", Toast.LENGTH_LONG).show()
+                                                        }
+                                                    }
+                                                })
                                         }
                                         if (response.code() == 400) {
                                             Toast.makeText( context,response.message().toString(), Toast.LENGTH_SHORT).show()
