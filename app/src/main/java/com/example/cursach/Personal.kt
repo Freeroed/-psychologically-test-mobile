@@ -35,6 +35,8 @@ class Personal : AppCompatActivity() {
                     val userInfo = response.body()
                     userEmail.setText(userInfo?.email)
                     userName.setText(userInfo?.lastName + " " + userInfo?.firstName)
+                    userBirtday.setText(userInfo?.birthDate)
+                    userGender.setText(userInfo?.gender)
                 }
             })
 
