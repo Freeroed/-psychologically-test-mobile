@@ -7,7 +7,9 @@ import android.widget.Toast
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.response.AccountDto
 import com.example.cursach.utils.SessionManager
+import kotlinx.android.synthetic.main.activity_auth.*
 import kotlinx.android.synthetic.main.activity_personal.*
+import kotlinx.android.synthetic.main.activity_personal.goBack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,10 +42,16 @@ class Personal : AppCompatActivity() {
                 }
             })
 
+        // выход из личного кабинета
         logout.setOnClickListener {
             sessionManager.cleanAuthToken()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+
+        // клик по кнопке "назад"
+        goBack.setOnClickListener {
+            onBackPressed()
         }
     }
 }
