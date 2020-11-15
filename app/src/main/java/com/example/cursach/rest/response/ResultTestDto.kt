@@ -1,48 +1,45 @@
 package com.example.cursach.rest.response
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.time.Instant
 
-data class ResultTestDto(
-
+class ResultTestDto : Serializable {
     @SerializedName("id")
-    val id: Long,
+    var id: Long = 0L
 
     @SerializedName("userId")
-    val userId: Long,
+    var userId: Long= 0L
     @SerializedName("stuckType")
-    val stuckType: Long,
+    val stuckType: Long= 0L
 
     @SerializedName("pedanticType")
-    val pedanticType: Long,
+    val pedanticType: Long= 0L
 
     @SerializedName("hyperthymicType")
-    val hyperthymicType: Long,
+    val hyperthymicType: Long= 0L
 
     @SerializedName("excitableType")
-    val excitableType: Long,
+    val excitableType: Long= 0L
 
     @SerializedName("emotiveType")
-    val emotiveType: Long,
+    val emotiveType: Long= 0L
 
     @SerializedName("emotionallyExaltedType")
-    val emotionallyExaltedType: Long,
+    val emotionallyExaltedType: Long= 0L
 
     @SerializedName("dysthymicType")
-    val dysthymicType: Long,
+    val dysthymicType: Long= 0L
 
     @SerializedName("demonstrativeType")
-    val demonstrativeType: Long,
+    val demonstrativeType: Long= 0L
 
     @SerializedName("cyclothymicType")
-    val cyclothymicType: Long,
+    val cyclothymicType: Long= 0L
 
     @SerializedName("anxiouslyFearfulType")
-    val anxiouslyFearfulType: Long,
+    val anxiouslyFearfulType: Long= 0L
 
     @SerializedName("finishedAt")
-    val finishedAt: String
-
-
-
-)
+    val finishedAt: String = ""
+}

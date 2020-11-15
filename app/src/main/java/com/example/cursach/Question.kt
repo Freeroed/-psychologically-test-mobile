@@ -102,6 +102,9 @@ class Question : AppCompatActivity() {
                             response: Response<ResultTestDto>
                         ) {
                             val result = response.body();
+                            val intent = Intent(context, TestResult::class.java)
+                            intent.putExtra("result", result)
+                            startActivity(intent)
                             println(result)
                             Toast.makeText( context,"Ваш ответ сохранён", Toast.LENGTH_SHORT).show()
                         }
