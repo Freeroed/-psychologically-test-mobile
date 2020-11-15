@@ -82,6 +82,18 @@
         android:layout_marginLeft="150px"
         android:layout_marginBottom="500px"/>
 
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30px"
+        android:layout_marginRight="150px"
+        android:layout_marginLeft="150px"
+        android:layout_weight="1"
+        android:text="@string/noAccount"
+        android:textColor="@android:color/black"
+        android:textSize="50px" />
     <Button
         android:id="@+id/registration"
         android:layout_width="match_parent"
