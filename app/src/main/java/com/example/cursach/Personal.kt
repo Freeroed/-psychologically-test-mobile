@@ -1,5 +1,7 @@
 package com.example.cursach
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,9 +46,22 @@ class Personal : AppCompatActivity() {
 
         // выход из личного кабинета
         logout.setOnClickListener {
-            sessionManager.cleanAuthToken()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val context = this
+            val quitDialog = AlertDialog.Builder(this)
+            quitDialog.setTitle("Вы уверены, что хотите выйти из личного кабинета?")
+            quitDialog.setPositiveButton("Да", object : DialogInterface.OnClickListener {
+                override fun onClick(dialog: DialogInterface?, which: Int) {
+                    sessionManager.cleanAuthToken()
+                    val intent = Intent(context, MainActivity::class.java)
+                    startActivity(intent)
+                }
+            })
+            quitDialog.setNegativeButton("Нет", object : DialogInterface.OnClickListener {
+                override fun onClick(dialog: DialogInterface?, which: Int) {
+                    dialog?.cancel()  //закрыть диалоговое окно
+                }
+            })
+            quitDialog.show()
         }
 
         // клик по кнопке "назад"
