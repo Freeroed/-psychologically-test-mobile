@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cursach</string>
+    <string name="app_name">Тест-опросник Шмишека и Леонгарда</string>
     <string name="test_name">Тест-опросник Шмишека и Леонгарда</string>
     <string name="test_description">
         Предлагаем пройти тест на акцентуацию характера, или опросник Шмишека, и узнать, какие типы акцентуации выражены у вас наиболее ярко.

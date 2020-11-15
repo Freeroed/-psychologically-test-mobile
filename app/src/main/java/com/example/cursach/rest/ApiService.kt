@@ -14,4 +14,7 @@ interface ApiService {
 
     @GET(Constants.ACCOUNT_URL)
     fun getAccount(): Call<AccountDto>
+
+    @POST(Constants.REGISTER_URL)
+    fun registration(@Body request: AccountDto): Call<Void>
 }

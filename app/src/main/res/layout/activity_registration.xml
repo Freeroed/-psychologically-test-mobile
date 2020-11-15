@@ -128,7 +128,7 @@
         android:layout_marginRight="80px"
         android:layout_marginLeft="80px">
         <RadioButton
-            android:id="@+id/male"
+            android:id="@+id/MALE"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:buttonTint="@color/mainGreen"
@@ -136,7 +136,7 @@
             android:textSize="70px"
             android:textColor="@android:color/black"/>
         <RadioButton
-            android:id="@+id/female"
+            android:id="@+id/FEMALE"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:buttonTint="@color/mainGreen"
@@ -145,7 +145,7 @@
             android:textColor="@android:color/black"/>
     </RadioGroup>
     <Button
-        android:id="@+id/editUserData"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:textSize="55px"
         android:background="@color/mainGreen"
