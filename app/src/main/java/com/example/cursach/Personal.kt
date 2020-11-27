@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.response.AccountDto
@@ -19,6 +20,7 @@ import retrofit2.Response
 class Personal : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
+    private var userId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var apiClient: ApiClient
@@ -37,10 +39,13 @@ class Personal : AppCompatActivity() {
 
                 override fun onResponse(call: Call<AccountDto>, response: Response<AccountDto>) {
                     val userInfo = response.body()
+                    Log.e("body", userInfo.toString())
                     userEmail.setText(userInfo?.email)
                     userName.setText(userInfo?.lastName + " " + userInfo?.firstName)
                     userBirtday.setText(userInfo?.birthDate)
                     userGender.setText(userInfo?.gender)
+
+                    userId = userInfo?.id!!
                 }
             })
 
@@ -67,6 +72,13 @@ class Personal : AppCompatActivity() {
         // клик по кнопке "назад"
         goBack.setOnClickListener {
             onBackPressed()
+        }
+
+        // клик по кнопке "статистика"
+        getStat.setOnClickListener {
+            val intent = Intent(this, StatActivity::class.java)
+            intent.putExtra("userId", userId.toString());
+            startActivity(intent)
         }
     }
 }
