@@ -1,6 +1,7 @@
 package com.example.cursach
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -53,8 +54,6 @@ class StatActivity : AppCompatActivity() {
                                 btn.setBackgroundColor(resources.getColor(R.color.selectedYelow))
                             }
 
-                            //val dateTime: LocalDateTime = LocalDateTime.parse(it.finishedAt)
-
                             val instant = Instant.parse(it.finishedAt)
                             val formatter: DateTimeFormatter =
                                 DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm").withZone(ZoneId.systemDefault())
@@ -67,8 +66,14 @@ class StatActivity : AppCompatActivity() {
 
                             btn.gravity = Gravity.CENTER_HORIZONTAL
 
+                            // получение конкретного результата
+                            btn.setOnClickListener({ v ->
+                                val intent = Intent(context, TestResult::class.java)
+                                intent.putExtra("result", it)
+                                startActivity(intent)
+                            })
+
                             mainLayout.addView(btn)
-                            Log.e("resultInfo", it.toString())
                             i++
                         }
                     }
