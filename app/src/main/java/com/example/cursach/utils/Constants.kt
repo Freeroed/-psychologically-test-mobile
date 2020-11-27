@@ -8,4 +8,5 @@ object Constants {
     const val REGISTER_URL = "register"
     const val SOLVE_TEST_URL = "test/solve"
     const val QUESTIONS_URL = "questions"
+    const val RESULTS_URL = "result-tests"
 }

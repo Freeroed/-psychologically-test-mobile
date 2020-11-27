@@ -42,4 +42,10 @@ class ResultTestDto : Serializable {
 
     @SerializedName("finishedAt")
     val finishedAt: String = ""
+
+    override fun toString(): String {
+        return "ResultTestDto(id=$id, userId=$userId, stuckType=$stuckType, pedanticType=$pedanticType, hyperthymicType=$hyperthymicType, excitableType=$excitableType, emotiveType=$emotiveType, emotionallyExaltedType=$emotionallyExaltedType, dysthymicType=$dysthymicType, demonstrativeType=$demonstrativeType, cyclothymicType=$cyclothymicType, anxiouslyFearfulType=$anxiouslyFearfulType, finishedAt='$finishedAt')"
+    }
+
+
 }

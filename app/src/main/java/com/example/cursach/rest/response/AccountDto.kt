@@ -29,5 +29,8 @@ data class AccountDto (
     var createdDate: String,
 
     @SerializedName("activated")
-    var activated: Boolean
+    var activated: Boolean,
+
+    @SerializedName("id")
+    var id: Int? = null
 )
