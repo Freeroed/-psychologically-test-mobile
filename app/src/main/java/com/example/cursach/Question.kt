@@ -65,9 +65,9 @@ class Question : AppCompatActivity() {
         }
 
         // клик по кнопке "назад"
-        goBack.setOnClickListener {
+       // goBack.setOnClickListener {
 
-        }
+       // }
 
         // клик по кнопке "вперед"
         goNext.setOnClickListener {
