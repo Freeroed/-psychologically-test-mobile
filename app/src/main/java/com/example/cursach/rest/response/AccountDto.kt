@@ -10,9 +10,6 @@ data class AccountDto (
     @SerializedName("firstName")
     var firstName: String,
 
-    @SerializedName("lastName")
-    var lastName: String,
-
     @SerializedName("login")
     var login: String,
 
