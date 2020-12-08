@@ -57,7 +57,7 @@ class Registration : AppCompatActivity() {
             val gender = resources.getResourceEntryName(genderSelect.checkedRadioButtonId)
             val firstName = nameInput.text.toString()
             val createdDate = Instant.now().toString()
-            val birthday = Instant.now().toString() // birthdayInput.text.toString()
+            val birthday = birthdayInput.text.toString()
 
             if (
                 email.length == 0 ||
@@ -88,7 +88,7 @@ class Registration : AppCompatActivity() {
                                 activated = true,
                                 firstName = firstName,
                                 gender = gender,
-                                birthDate = createdDate,
+                                birthDate = birthday,
                                 createdDate = createdDate
                             )
 
