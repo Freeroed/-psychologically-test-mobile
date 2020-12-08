@@ -18,7 +18,9 @@
 
     <string name="email">Email *</string>
     <string name="password">Пароль *</string>
+    <string name="new_password">Новый пароль</string>
     <string name="password_repeat">Повторите пароль *</string>
+    <string name="new_password_repeat">Повторите новый пароль</string>
     <string name="name">Фамилия и имя:</string>
     <string name="first_name">Имя и фамилия*</string>
     <string name="birtday">Дата рождения *</string>
@@ -38,6 +40,7 @@
     <string name="go_test">Начать тест</string>
     <string name="personal">Личный кабинет</string>
     <string name="register">Зарегистрироваться</string>
+    <string name="save">Сохранить</string>
 
     <string name="testResults">Результаты теста</string>
     <string name="typesDescription">Описание психотипов</string>
