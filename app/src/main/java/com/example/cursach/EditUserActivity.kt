@@ -1,6 +1,7 @@
 package com.example.cursach
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,11 +20,9 @@ import kotlinx.android.synthetic.main.activity_edit_user.goBack
 import kotlinx.android.synthetic.main.activity_edit_user.nameInput
 import kotlinx.android.synthetic.main.activity_edit_user.passwordInput
 import kotlinx.android.synthetic.main.activity_edit_user.passwordRepeatInput
-import kotlinx.android.synthetic.main.activity_registration.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.Instant
 import java.util.*
 
 class EditUserActivity : AppCompatActivity() {
@@ -120,8 +119,11 @@ class EditUserActivity : AppCompatActivity() {
                                     }
 
                                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                                        val userInfo = response.code()
-                                         Log.e("userInfo", userInfo.toString())
+                                        if (response.code() == 200) {
+                                            Toast.makeText( context,"Пароль успешно изменен", Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            Toast.makeText( context,"Старый пароль неверен", Toast.LENGTH_SHORT).show()
+                                        }
                                     }
                                 })
                         }
@@ -130,7 +132,7 @@ class EditUserActivity : AppCompatActivity() {
 
             }
 
-            // измпенение данных пользователя
+            // изменение данных пользователя
             if (
                 email.length == 0 ||
                 birthday.length == 0 ||

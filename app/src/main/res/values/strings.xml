@@ -31,6 +31,7 @@
     <string name="birtday_v2">Дата рождения:</string>
     <string name="gender_v2">Пол:</string>
     <string name="old_pass">Для изменения введите старый пароль</string>
+    <string name="email_forgot_pass">Введите email и мы вышлем новый пароль на Вашу почту</string>
 
     <string name="login">Войти</string>
     <string name="logout">Выйти</string>
@@ -42,6 +43,7 @@
     <string name="personal">Личный кабинет</string>
     <string name="register">Зарегистрироваться</string>
     <string name="save">Сохранить</string>
+    <string name="send">Выслать новый пароль</string>
 
     <string name="testResults">Результаты теста</string>
     <string name="typesDescription">Описание психотипов</string>

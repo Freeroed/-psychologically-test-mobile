@@ -3,6 +3,7 @@ package com.example.cursach.rest
 import com.example.cursach.rest.request.AnswerDto
 import com.example.cursach.rest.request.LoginDto
 import com.example.cursach.rest.request.PasswordDto
+import com.example.cursach.rest.request.ResetPassDto
 import com.example.cursach.rest.response.QuestionDto
 import com.example.cursach.rest.response.ResultTestDto
 import com.example.cursach.rest.response.AccountDto
@@ -34,6 +35,9 @@ interface ApiService {
     @PUT(Constants.USER_UPDATE_URL)
     fun updateUser(@Body request: AccountDto): Call<Void>
 
-    @POST(Constants.REGISTER_URL)
+    @POST(Constants.CHANGE_PASSWORD__URL)
     fun changePassword(@Body request: PasswordDto): Call<Void>
+
+    @POST(Constants.RESET_PASSWORD_URL)
+    fun resetPassword(@Body request: ResetPassDto): Call<Void>
 }

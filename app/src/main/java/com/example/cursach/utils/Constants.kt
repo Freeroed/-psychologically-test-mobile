@@ -11,4 +11,5 @@ object Constants {
     const val RESULTS_URL = "result-tests"
     const val USER_UPDATE_URL = "users"
     const val CHANGE_PASSWORD__URL = "account/change-password"
+    const val RESET_PASSWORD_URL = "account/reset-password/init"
 }
