@@ -14,7 +14,7 @@ data class AccountDto (
     var login: String,
 
     @SerializedName("password")
-    var password: String,
+    var password: String? = null,
 
     @SerializedName("gender")
     var gender: String,
@@ -23,10 +23,10 @@ data class AccountDto (
     var birthDate: String,
 
     @SerializedName("createdDate")
-    var createdDate: String,
+    var createdDate: String? = null,
 
     @SerializedName("activated")
-    var activated: Boolean,
+    var activated: Boolean? = null,
 
     @SerializedName("id")
     var id: Int? = null

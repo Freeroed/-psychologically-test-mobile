@@ -30,6 +30,7 @@
     <string name="email_v2">Email:</string>
     <string name="birtday_v2">Дата рождения:</string>
     <string name="gender_v2">Пол:</string>
+    <string name="old_pass">Для изменения введите старый пароль</string>
 
     <string name="login">Войти</string>
     <string name="logout">Выйти</string>

@@ -43,6 +43,11 @@ class Personal : AppCompatActivity() {
                     userName.setText(userInfo?.firstName)
                     userBirtday.setText(userInfo?.birthDate)
                     userGender.setText(userInfo?.gender)
+                    if (userInfo?.gender == "MALE") {
+                        userGender.setText("Мужской")
+                    } else {
+                        userGender.setText("Женский")
+                    }
 
                     userId = userInfo?.id!!
                 }

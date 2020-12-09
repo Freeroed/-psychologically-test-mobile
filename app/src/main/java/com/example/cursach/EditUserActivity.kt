@@ -6,12 +6,24 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.cursach.rest.ApiClient
+import com.example.cursach.rest.request.PasswordDto
 import com.example.cursach.rest.response.AccountDto
 import com.example.cursach.utils.SessionManager
 import kotlinx.android.synthetic.main.activity_edit_user.*
+import kotlinx.android.synthetic.main.activity_edit_user.FEMALE
+import kotlinx.android.synthetic.main.activity_edit_user.MALE
+import kotlinx.android.synthetic.main.activity_edit_user.birthdayInput
+import kotlinx.android.synthetic.main.activity_edit_user.emailInput
+import kotlinx.android.synthetic.main.activity_edit_user.genderSelect
+import kotlinx.android.synthetic.main.activity_edit_user.goBack
+import kotlinx.android.synthetic.main.activity_edit_user.nameInput
+import kotlinx.android.synthetic.main.activity_edit_user.passwordInput
+import kotlinx.android.synthetic.main.activity_edit_user.passwordRepeatInput
+import kotlinx.android.synthetic.main.activity_registration.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.Instant
 import java.util.*
 
 class EditUserActivity : AppCompatActivity() {
@@ -39,7 +51,6 @@ class EditUserActivity : AppCompatActivity() {
                     emailInput.setText(userInfo?.email)
                     nameInput.setText(userInfo?.firstName)
                     birthdayInput.setText(userInfo?.birthDate)
-                    Log.e("body", userInfo.toString())
                     if (userInfo?.gender == "MALE") {
                         genderSelect.check(MALE.id)
                     } else {
@@ -63,6 +74,85 @@ class EditUserActivity : AppCompatActivity() {
         // клик по кнопке "назад"
         goBack.setOnClickListener {
             onBackPressed()
+        }
+
+        // клик по кнопке "сохранить"
+        save.setOnClickListener {
+            apiClient = ApiClient()
+            val context = this
+
+            val email = emailInput.text.toString()
+            val passwordOld = oldPassword.text.toString()
+            val passwordFirst = passwordInput.text.toString()
+            val passwordSecond = passwordRepeatInput.text.toString()
+            val gender = resources.getResourceEntryName(genderSelect.checkedRadioButtonId)
+            val name = nameInput.text.toString()
+            val birthday = birthdayInput.text.toString()
+
+            var body = AccountDto(
+                login = email,
+                email = email,
+                firstName = name,
+                gender = gender,
+                birthDate = birthday,
+                id = 7656
+            )
+
+            // смена пароля если введены новые
+            if (passwordFirst.length != 0 || passwordSecond.length != 0 || passwordOld.length != 0) {
+                if (passwordFirst.length == 0 || passwordSecond.length == 0 || passwordOld.length == 0) {
+                    Toast.makeText( context, "Введите старый пароль и новый пароль 2 раза", Toast.LENGTH_SHORT).show()
+                } else {
+                    if (passwordFirst.length != passwordSecond.length) {
+                        Toast.makeText( context, "Пароли должны совпадать", Toast.LENGTH_SHORT).show()
+                    } else {
+                        if (passwordFirst.length < 8) {
+                            Toast.makeText( context, "Пароль должен быть длиннее 8 символов", Toast.LENGTH_SHORT).show()
+                        } else {
+                            var pass = PasswordDto(
+                                currentPassword = passwordOld,
+                                newPassword = passwordFirst
+                            )
+                            apiClient.getApiService(this).changePassword(pass)
+                                .enqueue(object : Callback<Void> {
+                                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                                        Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
+                                    }
+
+                                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                                        val userInfo = response.code()
+                                         Log.e("userInfo", userInfo.toString())
+                                    }
+                                })
+                        }
+                    }
+                }
+
+            }
+
+            // измпенение данных пользователя
+            if (
+                email.length == 0 ||
+                birthday.length == 0 ||
+                gender.length == 0 ||
+                name.length == 0
+            ) {
+                Toast.makeText( context, "Все поля обязательны для заполнения", Toast.LENGTH_SHORT).show()
+            } else {
+                apiClient.getApiService(this).updateUser(body)
+                    .enqueue(object : Callback<Void> {
+                        override fun onFailure(call: Call<Void>, t: Throwable) {
+                            Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
+                        }
+
+                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            val userInfo = response.errorBody()
+                            Log.e("mass", response.toString())
+                        }
+                    })
+            }
+
+
         }
     }
 }

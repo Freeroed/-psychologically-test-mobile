@@ -2,6 +2,7 @@ package com.example.cursach.rest
 
 import com.example.cursach.rest.request.AnswerDto
 import com.example.cursach.rest.request.LoginDto
+import com.example.cursach.rest.request.PasswordDto
 import com.example.cursach.rest.response.QuestionDto
 import com.example.cursach.rest.response.ResultTestDto
 import com.example.cursach.rest.response.AccountDto
@@ -29,4 +30,10 @@ interface ApiService {
 
     @GET(Constants.RESULTS_URL)
     fun getResults(@Query("userId.equals") id: Int?): Call<ArrayList<ResultTestDto>>
+
+    @PUT(Constants.USER_UPDATE_URL)
+    fun updateUser(@Body request: AccountDto): Call<Void>
+
+    @POST(Constants.REGISTER_URL)
+    fun changePassword(@Body request: PasswordDto): Call<Void>
 }
