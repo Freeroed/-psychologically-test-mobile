@@ -14,5 +14,17 @@
         android:layout_marginLeft="40px"
         android:layout_marginBottom="20px"
         android:layout_gravity="left"/>
+    <ScrollView
+        android:id="@+id/results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/btns"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/white"></LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

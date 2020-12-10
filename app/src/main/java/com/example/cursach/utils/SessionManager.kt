@@ -9,12 +9,23 @@ class SessionManager (context: Context) {
 
     companion object {
         const val AUTH_TOKEN = "auth_token"
+        const val ROLES = "roles"
     }
 
     fun saveAuthToken(token: String) {
         val editor = prefs.edit()
         editor.putString(AUTH_TOKEN, token)
         editor.apply()
+    }
+
+    fun saveUserRoles(roles: ArrayList<String>?) {
+        val editor = prefs.edit()
+        editor.putString(roles.toString(), ROLES)
+        editor.apply()
+    }
+
+    fun getRoles(): String? {
+        return prefs.getString(ROLES, null)
     }
 
     fun getAuthToken(): String? {

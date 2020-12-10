@@ -30,7 +30,7 @@ interface ApiService {
     fun getQuestions(): Call<ArrayList<QuestionDto>>
 
     @GET(Constants.RESULTS_URL)
-    fun getResults(@Query("userId.equals") id: Int?): Call<ArrayList<ResultTestDto>>
+    fun getResults(@Query("userId.equals") id: String?): Call<ArrayList<ResultTestDto>>
 
     @POST(Constants.USER_UPDATE_URL)
     fun updateUser(@Body request: AccountDto): Call<Void>
@@ -40,4 +40,5 @@ interface ApiService {
 
     @POST(Constants.RESET_PASSWORD_URL)
     fun resetPassword(@Body request: ResetPassDto): Call<Void>
+
 }

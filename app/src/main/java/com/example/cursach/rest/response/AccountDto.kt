@@ -29,5 +29,8 @@ data class AccountDto (
     var activated: Boolean? = null,
 
     @SerializedName("id")
-    var id: Int? = null
+    var id: Int? = null,
+
+    @SerializedName("authorities")
+    val authorities: ArrayList<String>
 )

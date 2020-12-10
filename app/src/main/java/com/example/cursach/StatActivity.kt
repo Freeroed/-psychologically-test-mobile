@@ -8,9 +8,11 @@ import android.util.Log
 import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginTop
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.response.ResultTestDto
 import kotlinx.android.synthetic.main.activity_stat.*
@@ -32,9 +34,11 @@ class StatActivity : AppCompatActivity() {
         val context = this
 
         var userId = getIntent().getExtras()?.getString("userId")
+        var isAdmin = getIntent().getExtras()?.getBoolean("isAdmin")!!
+        if (isAdmin) userId = ""
         // получение данных
         if (userId != null) {
-            apiClient.getApiService(this).getResults(userId.toInt())
+            apiClient.getApiService(this).getResults(userId)
                 .enqueue(object : Callback<ArrayList<ResultTestDto>> {
                     override fun onFailure(call: Call<ArrayList<ResultTestDto>>, t: Throwable) {
                         Toast.makeText( context,"FAIL", Toast.LENGTH_SHORT).show()
@@ -60,6 +64,7 @@ class StatActivity : AppCompatActivity() {
                             btn.setText("Результат за " + formatter.format(instant))
 
                             val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                            val scrollView = findViewById<ScrollView>(R.id.results)
                             params.setMargins(50, 0, 50, 30)
                             params.gravity = Gravity.CENTER
                             btn.layoutParams = params
@@ -73,7 +78,8 @@ class StatActivity : AppCompatActivity() {
                                 startActivity(intent)
                             })
 
-                            mainLayout.addView(btn)
+                            //mainLayout.addView(btn)
+                            btns.addView(btn)
                             i++
                         }
                     }
