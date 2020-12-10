@@ -88,15 +88,6 @@ class EditUserActivity : AppCompatActivity() {
             val name = nameInput.text.toString()
             val birthday = birthdayInput.text.toString()
 
-            var body = AccountDto(
-                login = email,
-                email = email,
-                firstName = name,
-                gender = gender,
-                birthDate = birthday,
-                id = 7656
-            )
-
             // смена пароля если введены новые
             if (passwordFirst.length != 0 || passwordSecond.length != 0 || passwordOld.length != 0) {
                 if (passwordFirst.length == 0 || passwordSecond.length == 0 || passwordOld.length == 0) {
@@ -141,6 +132,16 @@ class EditUserActivity : AppCompatActivity() {
             ) {
                 Toast.makeText( context, "Все поля обязательны для заполнения", Toast.LENGTH_SHORT).show()
             } else {
+                var body = AccountDto(
+                    login = email,
+                    email = email,
+                    firstName = name,
+                    gender = gender,
+                    birthDate = birthday,
+                    id = userId
+                )
+                Log.e("body", gender)
+                Log.e("body", birthday)
                 apiClient.getApiService(this).updateUser(body)
                     .enqueue(object : Callback<Void> {
                         override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -148,8 +149,11 @@ class EditUserActivity : AppCompatActivity() {
                         }
 
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                            val userInfo = response.errorBody()
-                            Log.e("mass", response.toString())
+                            if (response.code() == 200) {
+                                Toast.makeText( context,"Данные профиля успешно заменены", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText( context,"Произошла ошибка при изменении данных", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     })
             }

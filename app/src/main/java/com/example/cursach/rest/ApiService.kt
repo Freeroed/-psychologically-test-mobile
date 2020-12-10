@@ -32,7 +32,7 @@ interface ApiService {
     @GET(Constants.RESULTS_URL)
     fun getResults(@Query("userId.equals") id: Int?): Call<ArrayList<ResultTestDto>>
 
-    @PUT(Constants.USER_UPDATE_URL)
+    @POST(Constants.USER_UPDATE_URL)
     fun updateUser(@Body request: AccountDto): Call<Void>
 
     @POST(Constants.CHANGE_PASSWORD__URL)
