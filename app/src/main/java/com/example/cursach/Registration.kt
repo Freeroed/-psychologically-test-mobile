@@ -56,9 +56,8 @@ class Registration : AppCompatActivity() {
             val passwordSecond = passwordRepeatInput.text.toString()
             val gender = resources.getResourceEntryName(genderSelect.checkedRadioButtonId)
             val firstName = nameInput.text.toString()
-            val secondName = surnameInput.text.toString()
             val createdDate = Instant.now().toString()
-            val birthday = Instant.now().toString() // birthdayInput.text.toString()
+            val birthday = birthdayInput.text.toString()
 
             if (
                 email.length == 0 ||
@@ -66,8 +65,7 @@ class Registration : AppCompatActivity() {
                 passwordSecond.length == 0 ||
                 birthday.length == 0 ||
                 gender.length == 0 ||
-                firstName.length == 0 ||
-                secondName.length == 0
+                firstName.length == 0
             ) {
                 Toast.makeText( context, "Все поля обязательны для заполнения", Toast.LENGTH_SHORT).show()
             } else {
@@ -89,9 +87,8 @@ class Registration : AppCompatActivity() {
                                 password = passwordFirst,
                                 activated = true,
                                 firstName = firstName,
-                                lastName = secondName,
                                 gender = gender,
-                                birthDate = createdDate,
+                                birthDate = birthday,
                                 createdDate = createdDate
                             )
 

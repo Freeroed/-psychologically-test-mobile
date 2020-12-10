@@ -9,26 +9,29 @@
     <string name="instruction">
         Вам будут предложены утверждения, касающиеся вашего характера.
         Отвечайте, долго не  раздумывая, вы можете выбрать один их двух ответов: «да» или «нет», других вариантов ответов  нет.
-        Свой ответ нужно отметить в ответном бланке, поставив крестик в окошке «да» или «нет»  напротив цифры, соответствующей номеру вопроса.
+        На свой ответ нужно нажать, после чего у Вас появится кнопка перехода на следующий вопрос
     </string>
     <string name="noAccount">У Вас нет аккаунта?</string>
 
     <string name="yes">Да</string>
     <string name="no">Нет</string>
 
-    <string name="email">*Email:</string>
-    <string name="password">*Пароль:</string>
-    <string name="password_repeat">*Повторите пароль:</string>
+    <string name="email">Email *</string>
+    <string name="password">Пароль *</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="password_repeat">Повторите пароль *</string>
+    <string name="new_password_repeat">Повторите новый пароль</string>
     <string name="name">Фамилия и имя:</string>
-    <string name="second_name">*Фамилия:</string>
-    <string name="first_name">*Имя:</string>
-    <string name="birtday">*Дата рождения:</string>
-    <string name="gender">*Пол:</string>
+    <string name="first_name">Имя и фамилия*</string>
+    <string name="birtday">Дата рождения *</string>
+    <string name="gender">Пол </string>
     <string name="male">Мужской</string>
     <string name="female">Женский</string>
     <string name="email_v2">Email:</string>
     <string name="birtday_v2">Дата рождения:</string>
     <string name="gender_v2">Пол:</string>
+    <string name="old_pass">Для изменения введите старый пароль</string>
+    <string name="email_forgot_pass">Введите email и мы вышлем новый пароль на Вашу почту</string>
 
     <string name="login">Войти</string>
     <string name="logout">Выйти</string>
@@ -39,6 +42,8 @@
     <string name="go_test">Начать тест</string>
     <string name="personal">Личный кабинет</string>
     <string name="register">Зарегистрироваться</string>
+    <string name="save">Сохранить</string>
+    <string name="send">Выслать новый пароль</string>
 
     <string name="testResults">Результаты теста</string>
     <string name="typesDescription">Описание психотипов</string>

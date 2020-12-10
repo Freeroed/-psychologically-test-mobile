@@ -39,11 +39,15 @@ class Personal : AppCompatActivity() {
 
                 override fun onResponse(call: Call<AccountDto>, response: Response<AccountDto>) {
                     val userInfo = response.body()
-                    Log.e("body", userInfo.toString())
                     userEmail.setText(userInfo?.email)
-                    userName.setText(userInfo?.lastName + " " + userInfo?.firstName)
+                    userName.setText(userInfo?.firstName)
                     userBirtday.setText(userInfo?.birthDate)
                     userGender.setText(userInfo?.gender)
+                    if (userInfo?.gender == "MALE") {
+                        userGender.setText("Мужской")
+                    } else {
+                        userGender.setText("Женский")
+                    }
 
                     userId = userInfo?.id!!
                 }
@@ -78,6 +82,12 @@ class Personal : AppCompatActivity() {
         getStat.setOnClickListener {
             val intent = Intent(this, StatActivity::class.java)
             intent.putExtra("userId", userId.toString());
+            startActivity(intent)
+        }
+
+        // клик по кнопке "редактировать"
+        editUserData.setOnClickListener {
+            val intent = Intent(this, EditUserActivity::class.java)
             startActivity(intent)
         }
     }
