@@ -23,10 +23,8 @@
         android:layout_weight="4"
         android:text="@string/test_description"
         android:textSize="50px"
-        android:gravity="center"
         android:layout_marginLeft="40px"
         android:layout_marginRight="40px"
-        android:layout_gravity="center"
         android:textColor="@color/mainGreen"/>
     <Button
         android:id="@+id/goTest"

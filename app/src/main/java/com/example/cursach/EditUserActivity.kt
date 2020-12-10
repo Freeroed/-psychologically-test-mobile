@@ -24,6 +24,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+import kotlin.collections.ArrayList
 
 class EditUserActivity : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
@@ -138,7 +139,8 @@ class EditUserActivity : AppCompatActivity() {
                     firstName = name,
                     gender = gender,
                     birthDate = birthday,
-                    id = userId
+                    id = userId,
+                    authorities = ArrayList()
                 )
                 Log.e("body", gender)
                 Log.e("body", birthday)

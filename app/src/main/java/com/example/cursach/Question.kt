@@ -6,8 +6,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.marginRight
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.request.AnswerDto
 import com.example.cursach.rest.response.QuestionDto
@@ -28,6 +30,7 @@ class Question : AppCompatActivity() {
         this.context = this
 
         apiClient = ApiClient()
+        goBack.visibility = View.INVISIBLE
 
         var questions : ArrayList<QuestionDto> = intent.getSerializableExtra("questions") as ArrayList<QuestionDto>
         var currentQuestionNumber = 1;
@@ -70,14 +73,17 @@ class Question : AppCompatActivity() {
             selectedNo.background =  getResources().getDrawable(R.color.mainGreen)
             selectedAnswer = true;
             goNext.isEnabled = true
+            goNext.visibility = View.VISIBLE
         }
 
         // выбор ответа "нет"
         selectedNo.setOnClickListener {
             selectedYes.background =  getResources().getDrawable(R.color.mainGreen)
             selectedNo.background =  getResources().getDrawable(R.color.selectedYelow)
-            selectedAnswer = false;
+            selectedAnswer = false
             goNext.isEnabled = true
+            goNext.visibility = View.VISIBLE
+
         }
 
         // клик по кнопке "назад"
@@ -89,11 +95,19 @@ class Question : AppCompatActivity() {
         goNext.setOnClickListener {
             if (currentQuestionNumber < questions.size) {
                 currentQuestionNumber++;
+                if (currentQuestionNumber === questions.size) {
+                    goNext.setImageResource(R.drawable.to_result_170_50)
+                    goNext.rotation = 0f
+
+
+                }
+
                 currentQuestion = questions[currentQuestionNumber -1]
                 question.text = currentQuestion.question
 
                 questionNumber.text = "Вопрос " + currentQuestionNumber + "/" + questions.size
                 goNext.isEnabled = false
+                goNext.visibility = View.INVISIBLE
                 selectedYes.background =  getResources().getDrawable(R.color.mainGreen)
                 selectedNo.background =  getResources().getDrawable(R.color.mainGreen)
                 val answer = AnswerDto(selectedAnswer, currentQuestion.id)

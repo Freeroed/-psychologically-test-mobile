@@ -44,7 +44,7 @@
         android:layout_weight="7"
         android:text="Тут типа какой-нибудь большой вопрос"
         android:textSize="80px"
-        android:gravity="center"
+
         android:layout_gravity="center"
         android:layout_marginRight="50px"
         android:layout_marginLeft="50px"
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/arrow"
-            android:layout_marginRight="660px"
+            android:layout_marginRight="600px"
             android:layout_marginLeft="110px"
             android:layout_gravity="left"/>
         <ImageView android:id="@+id/goNext"

@@ -30,7 +30,7 @@ interface ApiService {
     fun getQuestions(): Call<ArrayList<QuestionDto>>
 
     @GET(Constants.RESULTS_URL)
-    fun getResults(@Query("userId.equals") id: String?): Call<ArrayList<ResultTestDto>>
+    fun getResults(@Query("userId.equals") id: String?, @Query("page") page: Int?, @Query("size") size: Int?): Call<ArrayList<ResultTestDto>>
 
     @POST(Constants.USER_UPDATE_URL)
     fun updateUser(@Body request: AccountDto): Call<Void>

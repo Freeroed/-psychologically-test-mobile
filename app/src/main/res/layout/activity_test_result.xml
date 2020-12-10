@@ -12,19 +12,16 @@
         android:layout_marginTop="30px"
         android:layout_marginLeft="40px"
         android:layout_gravity="left"/>
+
     <TextView
-        android:id="@+id/testResults"
+        android:id="@+id/testName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:textSize="100px"
         android:text="@string/testResults"
-        android:textSize="50px"
-        android:gravity="center"
-        android:layout_marginLeft="40px"
-        android:layout_marginRight="40px"
         android:layout_gravity="center"
-        android:textColor="@color/mainGreen"
-        android:paddingTop="50px"/>
+        android:gravity="center"
+        android:textColor="@android:color/black"/>
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/testResultChart"
@@ -48,8 +45,9 @@
                 android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
+
                 android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/demonstrative"
                 android:layout_width="wrap_content"
@@ -57,11 +55,19 @@
                 android:layout_weight="4"
                 android:text="@string/demonstrative"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
                 android:textColor="@color/mainGreen"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/stuck"
                 android:layout_width="wrap_content"
@@ -69,11 +75,20 @@
                 android:layout_weight="4"
                 android:text="@string/stuck"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
                 android:textColor="@color/mainGreen"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/pedantic"
                 android:layout_width="wrap_content"
@@ -81,11 +96,19 @@
                 android:layout_weight="4"
                 android:text="@string/pedantic"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
                 android:textColor="@color/mainGreen"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/excitable"
                 android:layout_width="wrap_content"
@@ -93,10 +116,16 @@
                 android:layout_weight="4"
                 android:text="@string/excitable"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
+                android:textColor="@color/mainGreen"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
                 android:textColor="@color/mainGreen"/>
             <TextView
                 android:id="@+id/hyperthymic"
@@ -105,11 +134,19 @@
                 android:layout_weight="4"
                 android:text="@string/hyperthymic"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
+                android:textColor="@color/mainGreen"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
                 android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/disthymic"
                 android:layout_width="wrap_content"
@@ -117,10 +154,16 @@
                 android:layout_weight="4"
                 android:text="@string/disthymic"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
+                android:textColor="@color/mainGreen"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
                 android:textColor="@color/mainGreen"/>
             <TextView
                 android:id="@+id/anxiouslyFearFull"
@@ -129,10 +172,18 @@
                 android:layout_weight="4"
                 android:text="@string/anxiouslyFearFull"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
                 android:layout_gravity="center"
+                android:textColor="@color/mainGreen"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
                 android:textColor="@color/mainGreen"/>
             <TextView
                 android:id="@+id/emotionally"
@@ -141,11 +192,18 @@
                 android:layout_weight="4"
                 android:text="@string/emotionally"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
                 android:textColor="@color/mainGreen"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/emotive"
                 android:layout_width="wrap_content"
@@ -153,11 +211,18 @@
                 android:layout_weight="4"
                 android:text="@string/emotive"
                 android:textSize="50px"
-                android:gravity="center"
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
                 android:textColor="@color/mainGreen"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delimiter"
+                android:textSize="50px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:textColor="@color/mainGreen"/>
+
             <TextView
                 android:id="@+id/cyclothymic"
                 android:layout_width="wrap_content"
@@ -165,10 +230,10 @@
                 android:layout_weight="4"
                 android:text="@string/cyclothymic"
                 android:textSize="50px"
-                android:gravity="center"
+
                 android:layout_marginLeft="40px"
                 android:layout_marginRight="40px"
-                android:layout_gravity="center"
+
                 android:textColor="@color/mainGreen"
                 android:layout_marginBottom="40px"
                 android:paddingBottom="900px"/>
