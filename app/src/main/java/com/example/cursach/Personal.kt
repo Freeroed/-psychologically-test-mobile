@@ -21,6 +21,7 @@ class Personal : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
     private var userId = 0
+    private var isAdmin = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var apiClient: ApiClient
@@ -44,7 +45,11 @@ class Personal : AppCompatActivity() {
                     userName.setText(userInfo?.lastName + " " + userInfo?.firstName)
                     userBirtday.setText(userInfo?.birthDate)
                     userGender.setText(userInfo?.gender)
-
+                    sessionManager.saveUserRoles(userInfo?.authorities)
+                    if (userInfo?.authorities?.indexOf("ROLE_ADMIN") !== -1) {
+                        isAdmin = true
+                    }
+                    println(sessionManager.getRoles())
                     userId = userInfo?.id!!
                 }
             })
@@ -77,7 +82,8 @@ class Personal : AppCompatActivity() {
         // клик по кнопке "статистика"
         getStat.setOnClickListener {
             val intent = Intent(this, StatActivity::class.java)
-            intent.putExtra("userId", userId.toString());
+            intent.putExtra("userId", userId.toString())
+            intent.putExtra("isAdmin", isAdmin)
             startActivity(intent)
         }
     }

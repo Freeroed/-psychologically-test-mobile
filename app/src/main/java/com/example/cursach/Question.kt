@@ -1,10 +1,13 @@
 package com.example.cursach
 
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.cursach.rest.ApiClient
 import com.example.cursach.rest.request.AnswerDto
 import com.example.cursach.rest.response.QuestionDto
@@ -17,10 +20,12 @@ import retrofit2.Response
 
 class Question : AppCompatActivity() {
     private lateinit var apiClient: ApiClient
+    private lateinit var timer : CountDownTimer
+    private lateinit var context: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
-        val context = this
+        this.context = this
 
         apiClient = ApiClient()
 
@@ -34,10 +39,21 @@ class Question : AppCompatActivity() {
         var answers: ArrayList<AnswerDto> = ArrayList()
 
 
-        val timer = object: CountDownTimer(240000L, 1000) {
+        this.timer = object: CountDownTimer(600000L, 1000) {
             override fun onFinish() {
-                // TODO Остановить текст
                 Toast.makeText( context,"ВРЕМЯ ВЫШЛО", Toast.LENGTH_SHORT).show()
+                val stopTestDialog = AlertDialog.Builder(context)
+                stopTestDialog.setTitle("Время на проходение опроса вышло. Начните с начала")
+                stopTestDialog.setPositiveButton("Ок", object : DialogInterface.OnClickListener {
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        val intent = Intent(context, TestDescriptionActivity::class.java)
+                        startActivity(intent)
+                    }
+                })
+                stopTestDialog.setCancelable(false)
+                stopTestDialog.show()
+
+
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -112,5 +128,22 @@ class Question : AppCompatActivity() {
             }
 
         }
+    }
+
+    override fun onBackPressed() {
+        val stopTestDialog = AlertDialog.Builder(this)
+        stopTestDialog.setTitle("Вы уверены, что хотите завершить тест?")
+        stopTestDialog.setPositiveButton("Да", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
+        });
+        stopTestDialog.setNegativeButton("Нет", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, whitch: Int) {
+                dialog?.cancel()
+            }
+        })
+        stopTestDialog.show()
     }
 }

@@ -20,6 +20,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.time.Instant
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Registration : AppCompatActivity() {
 
@@ -92,7 +93,8 @@ class Registration : AppCompatActivity() {
                                 lastName = secondName,
                                 gender = gender,
                                 birthDate = createdDate,
-                                createdDate = createdDate
+                                createdDate = createdDate,
+                                authorities = ArrayList<String>()
                             )
 
                             apiClient.getApiService(this).registration(body)

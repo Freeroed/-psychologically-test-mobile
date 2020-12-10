@@ -28,5 +28,5 @@ interface ApiService {
     fun getQuestions(): Call<ArrayList<QuestionDto>>
 
     @GET(Constants.RESULTS_URL)
-    fun getResults(@Query("userId.equals") id: Int?): Call<ArrayList<ResultTestDto>>
+    fun getResults(@Query("userId.equals") id: String?): Call<ArrayList<ResultTestDto>>
 }
