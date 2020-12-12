@@ -93,6 +93,7 @@ class Question : AppCompatActivity() {
 
         // клик по кнопке "вперед"
         goNext.setOnClickListener {
+            goNext.isEnabled = false
             if (currentQuestionNumber < questions.size) {
                 currentQuestionNumber++;
                 if (currentQuestionNumber === questions.size) {
@@ -106,7 +107,7 @@ class Question : AppCompatActivity() {
                 question.text = currentQuestion.question
 
                 questionNumber.text = "Вопрос " + currentQuestionNumber + "/" + questions.size
-                goNext.isEnabled = false
+
                 goNext.visibility = View.INVISIBLE
                 selectedYes.background =  getResources().getDrawable(R.color.mainGreen)
                 selectedNo.background =  getResources().getDrawable(R.color.mainGreen)
@@ -134,6 +135,7 @@ class Question : AppCompatActivity() {
                             val result = response.body();
                             val intent = Intent(context, TestResult::class.java)
                             intent.putExtra("result", result)
+                            intent.putExtra("previousPage", "test_desc")
                             startActivity(intent)
                             println(result)
                             Toast.makeText( context,"Ваш ответ сохранён", Toast.LENGTH_SHORT).show()

@@ -1,5 +1,6 @@
 package com.example.cursach
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cursach.rest.response.ResultTestDto
@@ -14,10 +15,16 @@ import kotlinx.android.synthetic.main.activity_test_result.*
 class TestResult : AppCompatActivity() {
 
 
+    var previousPage = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
         val resultTest : ResultTestDto = intent.getSerializableExtra("result") as ResultTestDto
+        previousPage = intent.getStringExtra("previousPage")!!
+
+        goBack.setOnClickListener {
+            onBackPressed()
+        }
         setBarChart(resultTest)
     }
 
@@ -69,5 +76,13 @@ class TestResult : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onBackPressed() {
+        if (previousPage == "test_desc") {
+            val intent = Intent(this, TestDescriptionActivity::class.java)
+            startActivity(intent)
+        }
+        super.onBackPressed()
     }
 }

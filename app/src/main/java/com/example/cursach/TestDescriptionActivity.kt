@@ -43,7 +43,6 @@ class TestDescriptionActivity : AppCompatActivity() {
                     val questions = response.body();
 
                     if (questions != null && questions.isNotEmpty()) {
-                        Toast.makeText( context,"Закгружено вопросов : " + questions.size, Toast.LENGTH_LONG).show()
                         val intent = Intent(context, Question::class.java)
                         intent.putExtra("questions", questions)
                         startActivity(intent)
@@ -59,5 +58,10 @@ class TestDescriptionActivity : AppCompatActivity() {
         goBack.setOnClickListener {
             onBackPressed()
         }
+    }
+
+    override fun onBackPressed() {
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -130,6 +130,7 @@ class StatActivity : AppCompatActivity() {
                         btn.setOnClickListener({ v ->
                             val intent = Intent(context, TestResult::class.java)
                             intent.putExtra("result", it)
+                            intent.putExtra("previousPage", "stat")
                             startActivity(intent)
                         })
 
