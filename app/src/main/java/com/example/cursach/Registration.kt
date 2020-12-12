@@ -89,7 +89,7 @@ class Registration : AppCompatActivity() {
                                 activated = true,
                                 firstName = firstName,
                                 gender = gender,
-                                birthDate = createdDate,
+                                birthDate = birthday,
                                 createdDate = createdDate,
                                 authorities = ArrayList<String>()
                             )
